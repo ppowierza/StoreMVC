@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Store.Models;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Store.Models;
 
 namespace Store.Controllers
 {
@@ -16,9 +17,15 @@ namespace Store.Controllers
             repository = repo;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+        public ViewResult List()
+        {
+            return View(repository.Products);
+        }
+
+
+
+
     }
+
 }
+
