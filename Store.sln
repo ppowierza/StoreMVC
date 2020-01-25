@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C1B6C155-D3E2-46D8-9089-BD2385723898}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Tests", "test\Store.Tests\Store.Tests.csproj", "{D27765B4-372E-4EF6-9509-5DBB368032F5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EF7BA6C8-718F-49EA-AEF9-B94811D9554A} = {EF7BA6C8-718F-49EA-AEF9-B94811D9554A}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore", "src\BookStore\BookStore.csproj", "{EF7BA6C8-718F-49EA-AEF9-B94811D9554A}"
 EndProject
