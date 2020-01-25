@@ -1,11 +1,17 @@
 ﻿@model IEnumerable<Product>
 
+
 @foreach (var item in Model)
 {
     <div>
-        <h3>@item.Name</h3>
-        @item.Description
-        <h4>@item.Price.ToString() zł</h4>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">@item.Description</p>
+                <p class="displayInline">@item.Price.ToString("c")</p> <a href="#" class="btn btn-primary displayInline">Buy</a>
+            </div>
+        </div>
+        <br/>
     </div>
 }
 
