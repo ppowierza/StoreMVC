@@ -45,23 +45,10 @@ namespace BookStore
             app.UseAuthorization();
 
             app.UseMvc(routes => {
-                routes.MapRoute("pagination", template: "Products/PageLAALALALALALALA{page}", defaults: new { Controller = "Product", action = "List" });
+                routes.MapRoute("pagination", template: "Products/Page{page}", defaults: new { Controller = "Product", action = "List" });
                 routes.MapRoute("default", "{controller=Product}/{action=List}/{id?}");
             });
 
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controller=Product}/{action=List}/{id?}"),
-            //    endpoints.MapControllerRoute(
-            //        name: "pagination",
-            //        template: "Products/Page{page}",
-            //        defaults: new { Controller = "Product", action = "List" });
-
-
-            //});
             SeedData.EnsurePopulated(app);
         }
     }
