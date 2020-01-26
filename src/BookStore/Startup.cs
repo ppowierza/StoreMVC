@@ -24,6 +24,8 @@ namespace BookStore
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:BookStoreProducts:ConnectionString"]));
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddControllersWithViews();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, ApplicationDbContext context)
@@ -41,13 +43,25 @@ namespace BookStore
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
-            
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Product}/{action=List}/{id?}");
+
+            app.UseMvc(routes => {
+                routes.MapRoute("pagination", template: "Products/PageLAALALALALALALA{page}", defaults: new { Controller = "Product", action = "List" });
+                routes.MapRoute("default", "{controller=Product}/{action=List}/{id?}");
             });
+
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Product}/{action=List}/{id?}"),
+            //    endpoints.MapControllerRoute(
+            //        name: "pagination",
+            //        template: "Products/Page{page}",
+            //        defaults: new { Controller = "Product", action = "List" });
+
+
+            //});
             SeedData.EnsurePopulated(app);
         }
     }

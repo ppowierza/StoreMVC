@@ -36,8 +36,13 @@ namespace Store.Tests
             Assert.True(prodArray.Length == 2);
             Assert.Equal("P4", prodArray[0].Name);
             Assert.Equal("P5", prodArray[1].Name);
-
-
         }
+
+        //public void CanSendPaginationViewModel()
+        //{
+        //    //Arrange
+        //    Mock<IProductRepository> mock = new Mock<IProductRepository>();
+        //    mock.Setup
+        //}
     }
 }
