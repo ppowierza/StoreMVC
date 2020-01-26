@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore.Models.ViewModels;
 
 namespace BookStore.Controllers
 {
@@ -20,16 +21,20 @@ namespace BookStore.Controllers
 
         public ViewResult List(int page = 1)
         {
-            return View(repository.Products
-                           .OrderBy(p=>p.ProductID)
+            return View( new ProductsListViewModel
+            {
+                Products = repository.Products
+                           .OrderBy(p => p.ProductID)
                            .Skip((page - 1) * PageSize)
-                           .Take(PageSize));
+                           .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = repository.Products.Count()
+                }
+            });
         }
-
-
-
-
     }
-
 }
 

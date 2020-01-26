@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Product>
+﻿@model ProductsListViewModel
 
 
-@foreach (var item in Model)
+@foreach (var item in Model.Products)
 {
     <div>
         <div class="card">
@@ -13,6 +13,7 @@
         </div>
         <br/>
     </div>
+    <div page-model="@Model.PagingInfo" page-action="List"></div>
 }
 
 
