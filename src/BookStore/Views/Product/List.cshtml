@@ -3,17 +3,10 @@
 
 @foreach (var item in Model.Products)
 {
-    <div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                <p class="card-text">@item.Description</p>
-                <p class="displayInline">@item.Price.ToString("c")</p> <a href="#" class="btn btn-primary displayInline">Buy</a>
-            </div>
-        </div>
-        <br/>
-    </div>
+        @Html.Partial("ProductSummary",item)
 }
-    <div page-model="@Model.PagingInfo" page-action="List"></div>
+    <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-default" page-class-selected="btn-primary"class="btn-group pull-right">
+    </div>
 
 
